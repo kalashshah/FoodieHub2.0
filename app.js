@@ -17,7 +17,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 mongoose.connect("mongodb://localhost:27017/userdb", {useNewUrlParser: true});
-const secret = process.env.SECRET;
 
 const userSchema = new mongoose.Schema ({
     email: String,
