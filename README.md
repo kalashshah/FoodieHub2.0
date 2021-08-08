@@ -1,6 +1,5 @@
 # FoodieHub2.0
 FoodieHub
-Master Branch of FoodieHUB2.0
 https://rocky-headland-51556.herokuapp.com/
 
 # Error 417
