@@ -1,0 +1,77 @@
+<%- include('partials/header') %>
+
+<%- include('partials/navbar.ejs') %>
+
+<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+    <div class="wrapper wrapper--w680">
+      <div class="card card-4">
+        <div class="card-body">
+          <h2 class="title">SignUp</h2>
+          <form method="POST">
+            <div class="row row-space">
+              <div class="col-2">
+                <div class="input-group">
+                  <label style="min-width: 10em;" class="labelo">first name</label>
+                  <input
+                    style="min-width: 14em;"
+                    class="input--style-4"
+                    type="text"
+                    name="first_name"
+                  />
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-group">
+                  <label style="min-width: 10em;" class="labelo">last name</label>
+                  <input
+                    style="min-width: 14em;"
+                    class="input--style-4"
+                    type="text"
+                    name="lastName"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row row-space">
+              <div class="col-2">
+                <div class="input-group">
+                  <label style="min-width: 10em;" class="labelo">Email</label>
+                  <input style="min-width: 14em;" class="input--style-4" type="email" name="email" />
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="labelo">Phone Number</label>
+                  <input style="min-width: 14em;" class="input--style-4" type="text" name="phoneNumber" />
+                </div>
+              </div>
+            </div>
+
+            <div class="row row-space">
+              <div class="col-2">
+                <div class="input-group">
+                  <label style="min-width: 10em;" class="labelo">Password</label>
+                  <input style="min-width: 14em;" class="input--style-4" type="password" name="password" />
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-group">
+                  <label style="min-width: 10em;" class="labelo">Confirm Password</label>
+                  <input style="min-width: 14em;" class="input--style-4" type="password" name="confirmPass" />
+                </div>
+              </div>
+            </div>
+
+            <div class="p-t-15">
+              <button class="btn btn--radius-2 btn--orange" type="submit">
+                Register
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%- include('partials/footer') %>
