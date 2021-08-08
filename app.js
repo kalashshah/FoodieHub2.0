@@ -15,14 +15,18 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://localhost:27017/userdb", {useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:27017/customerdb", {useNewUrlParser: true});
 
-const userSchema = new mongoose.Schema ({
+const customerSchema = new mongoose.Schema ({
+    firstName: String,
+    lastName: String,
     email: String,
-    password: String
+    phoneNumber: Number,
+    password: String,
+    confirmPass: String
 });
 
-const User = new mongoose.model("User", userSchema);
+const Customer = new mongoose.model("Customer", customerSchema);
 
 app.get('/', function(req, res) {
     res.render('home');
@@ -38,32 +42,40 @@ app.get('/register', function(req, res) {
 
 app.post("/register", function(req, res) {
     bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
-            const newUser = new User({
-            email: req.body.username,
-            password: hash
+            const newCustomer = new Customer({
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                email: req.body.email,
+                phoneNumber: req.body.phoneNumber,
+                password: hash
         });
-        newUser.save(function(err){
+        newCustomer.save(function(err){
             if(err) {
                 console.log(err);
             } else {
-                res.render("secrets");
+                console.log("Registered Successfully");
+                res.render("dashboard");
             }
         });
    });
 });
 
 app.post('/login', function(req, res) {
-   const username = req.body.username;
+   const email = req.body.email;
     const password = req.body.password;
 
-   User.findOne({email: username}, function(err, foundUser) {
+   Customer.findOne({email: email}, function(err, foundCustomer) {
     if(err) {
         console.log(err);
     } else {
-        if(foundUser) {
-            bcrypt.compare(password, foundUser.password, function(_err, result) {
+        if(foundCustomer) {
+            bcrypt.compare(password, foundCustomer.password, function(_err, result) {
                 if(result === true){
-                    res.render("secrets");
+                    console.log("Customer Found");
+                    res.render("dashboard");
+                }
+                if(_err) {
+                    console.log(_err);
                 }
             });
         }
