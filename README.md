@@ -1,5 +1,4 @@
 # FoodieHub2.0
-FoodieHub
 https://rocky-headland-51556.herokuapp.com/
 
 # Error 417
