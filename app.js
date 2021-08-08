@@ -85,6 +85,6 @@ app.post('/login', function(req, res) {
    });
 });
 
-app.listen(3000 || PORT , function(req, res) {
+app.listen(process.env.PORT || 3000 , function(req, res) {
     console.log('Listening to port 3000');
 });
